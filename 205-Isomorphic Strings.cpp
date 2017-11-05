@@ -23,3 +23,15 @@ You may assume both s and t have the same length.
 第一次两个字符对上号之后，记录下来，以后他俩一旦对不上了就返回false
 
 */
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        int m1[256] = {0}, m2[256] = {0}, n = s.size();//也可以用map<char,int>来记录
+        for (int i = 0; i < n; ++i) {
+            if (m1[s[i]] != m2[t[i]]) return false;
+            m1[s[i]] = i + 1;
+            m2[t[i]] = i + 1;
+        }
+        return true;
+    }
+};
