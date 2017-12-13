@@ -13,13 +13,13 @@ count = 0
 
 def DFS(row, shu, pie, na):
     global count
-    available = ((1 << n) - 1) & ~(shu | pie | na)  # 当前行还能放置皇后的列
-    while available:                                # 枚举可用的列
-        p = available & -available
-        available ^= p
+    available = ((1 << n) - 1) & ~(shu | pie | na)  // 当前行还能放置皇后的列
+    while available:                                // 枚举可用的列
+        p = available & -available					//获取最右边可用列
+        available ^= p								//异或操作使该列标记为已访问
         if row == n - 1:
             count += 1
         else:
-            DFS(row + 1, shu | p, (pie | p) >> 1, (na | p) << 1) # 设置标记并移位
+            DFS(row + 1, shu | p, (pie | p) >> 1, (na | p) << 1) // 设置标记并移位
 
 DFS(0, 0, 0, 0)
