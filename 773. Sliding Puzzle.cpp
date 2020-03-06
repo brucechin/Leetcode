@@ -35,6 +35,7 @@ board[i][j] will be a permutation of [0, 1, 2, 3, 4, 5].
 
 */
 //这个解法更通用，不用给0所在所有位置都设定好可以走的位置，走的时候判断是不是合法移动的方向。
+//可以用双向BFS和启发式搜索进一步降低复杂度
 class Solution {
 public:
     int slidingPuzzle(vector<vector<int>>& board) {
