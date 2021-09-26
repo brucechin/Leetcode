@@ -14,6 +14,12 @@ Explanation: transactions = [buy, sell, cooldown, buy, sell]
 
 */
 
+
+
+/*----------------------------------------------------------------
+buy[i] = max(sell[i-2]-price, buy[i-1])  here it is i-2 because of the cooldown
+sell[i] = max(buy[i-1]+price, sell[i-1])
+*/
 class Solution {
 public:
     int maxProfit(vector<int> &prices) {
